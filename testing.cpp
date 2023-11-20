@@ -9,7 +9,6 @@ using namespace std;
 double test_sieve(function<std::vector<uint32_t>(uint32_t)> sieve, uint32_t n){
     double cycles = 10;
     auto start = chrono::high_resolution_clock::now();
-    // cout << "started" << endl;
     for (int i = 0; i < cycles; i++) sieve(n);
     auto stop = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(stop - start);
@@ -18,8 +17,6 @@ double test_sieve(function<std::vector<uint32_t>(uint32_t)> sieve, uint32_t n){
 
 
 int main(){
-    // vector<uint32_t> res = Gries_Misra(100);
-    // for(uint32_t v: res) cout << v << endl;
     for(uint32_t n = 1000000; n <= 1000000000; n *= 10){
         cout << "n = " << n << '\n';
         cout << "Naive method: " << test_sieve(naive, n) << " ms\n";
